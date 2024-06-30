@@ -27,7 +27,6 @@ def main():
         title_container = st.container()
         with title_container:
             st.title('Ryley Traverse Bowling League Analysis Interactive Dashboard')
-
         hf.create_analysis_tab(df_bowling, 'All Time Game Average')
 
     with league_tab:
@@ -44,7 +43,6 @@ def main():
         title_container = st.container()
         smooth_plot = st.container()
         prediction_container = st.container()
-
 
         with title_container:
             st.title('Ryley Traverse Bowling League Analysis Interactive Dashboard')
@@ -87,6 +85,10 @@ def main():
             st.plotly_chart(fig_go)
 
         with add_data_tab:
+            title_container = st.container()
+            with title_container:
+                st.title('Ryley Traverse Bowling League Analysis Interactive Dashboard')
+
             df_saved = pd.read_csv('Bowling.csv')
             league_name = st.text_input("League Name: ", "thab_summer_24")
             league_date = st.text_input("Date: ", "1/1/24")
