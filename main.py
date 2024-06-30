@@ -18,6 +18,7 @@ def main():
 
     with st.sidebar:
         st.header('This streamlit dashboard was made for my personal use and allows for updates, tracking, and prediction my bowling performance.')
+        st.markdown("Link to code in Github [link](%s)" % "https://github.com/ryleytraverse/streamlit_bowling_app/blob/main/main.py")
         st.subheader('The first tab shows my all time bowling score analysis.')
         st.subheader('The second tab shows my bowling score analysis on a league by league basis.')
         st.subheader('The third tab shows my predicted bowling score for the following week.')
