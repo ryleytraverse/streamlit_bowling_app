@@ -2,7 +2,7 @@
 
 ## Author: Ryley Traverse
 
-[Link to Streamlit App](https://ryleytraversebowling.streamlit.app , 'ryleytraversebowling')
+[Link to Streamlit App](https://ryleytraversebowling.streamlit.app)
 
 This is a repo featuring code to create a streamlit app that allows for updates, tracking, and prediction of my bowling performance.
 
