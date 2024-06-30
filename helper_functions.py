@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import plotly.graph_objects as go
     
 def create_analysis_tab(df:pd.DataFrame, title_name:str):
