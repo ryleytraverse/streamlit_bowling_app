@@ -60,9 +60,9 @@ def main():
             poly_order = st.number_input("Choose Smoothing Polynomial Order", min_value=1, max_value=5, value=2)
             df_bowling_smooth['scratch_average_smoothed'] = savgol_filter(df_bowling_smooth['average'].to_numpy(), window_size, poly_order)
             fig_go = go.Figure()
-            fig_go.add_trace(go.Scatter(x=df_bowling_smooth['week_num_all_time'], y=df_bowling_smooth['average'], mode='lines+markers', name='Scratch', line=dict(color='magenta')))
-            fig_go.add_trace(go.Scatter(x=df_bowling_smooth['week_num_all_time'], y=df_bowling_smooth['scratch_average_smoothed'], mode='lines+markers', name='Scratch Smoothed', line=dict(color='indigo')))
-            t = 'Plot of Scratch Bowling Average over Time after Smoothing'
+            fig_go.add_trace(go.Scatter(x=df_bowling_smooth['week_num_all_time'], y=df_bowling_smooth['average'], mode='lines+markers', name='Average Bowling Performance', line=dict(color='magenta')))
+            fig_go.add_trace(go.Scatter(x=df_bowling_smooth['week_num_all_time'], y=df_bowling_smooth['scratch_average_smoothed'], mode='lines+markers', name='Average Bowling Performance Smoothed', line=dict(color='indigo')))
+            t = 'Plot of Bowling Average over Time after Smoothing'
             fig_go.update_layout(title=t, xaxis_title='All Time Week Number', yaxis_title='Score')
             st.plotly_chart(fig_go)
 
@@ -84,17 +84,17 @@ def main():
             preds = lin_reg.predict(X_poly)
             # Calculate MAE and print out next week's prediction and past week's accuracy
             mae = np.mean(abs(preds-y))
-            t = 'Scratch Bowling Average Prediction for Next Week of Bowling: ' + str(round(pred[0]))
+            t = 'Bowling Average Prediction for Next Week of Bowling: ' + str(round(pred[0]))
             st.subheader(t)
-            t = 'Past Week\'s Scratch Bowling Average Predictions Mean Absolute Error: ' + str(round(mae, 2))
+            t = 'Past Week\'s Bowling Average Predictions Mean Absolute Error: ' + str(round(mae, 2))
             st.subheader(t)
 
             # Plot Data, Regression Line, and Next Weeks Prediction
             fig_go = go.Figure()
-            fig_go.add_trace(go.Scatter(x=df_bowling_smooth['week_num_all_time'], y=df_bowling_smooth['average'], mode='lines+markers', name='Average Scratch', line=dict(color='magenta')))
+            fig_go.add_trace(go.Scatter(x=df_bowling_smooth['week_num_all_time'], y=df_bowling_smooth['average'], mode='lines+markers', name='Average Bowling Performance', line=dict(color='magenta')))
             fig_go.add_trace(go.Scatter(x=df_bowling_smooth['week_num_all_time'], y=preds, mode='lines', name='Fitted Regression Line', line=dict(color='indigo')))
-            fig_go.add_trace(go.Scatter(x=[next_time_step], y=pred, mode='markers', name='Next League Scratch Bowling Average Prediction', line=dict(color='indigo')))
-            t = 'Plot of Scratch Bowling Average with Regression Line and Prediction Shown'
+            fig_go.add_trace(go.Scatter(x=[next_time_step], y=pred, mode='markers', name='Next League\'s Bowling Average Prediction', line=dict(color='indigo')))
+            t = 'Plot of Bowling Average with Regression Line and Prediction Shown'
             fig_go.update_layout(title=t, xaxis_title='All Time Week Number', yaxis_title='Score')
             st.plotly_chart(fig_go)
 

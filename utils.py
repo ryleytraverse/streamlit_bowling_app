@@ -12,9 +12,9 @@ def create_analysis_tab(df:pd.DataFrame, title_name:str):
     # Plot Average Bowling Scratch Over Time
     with scratch_over_time:
         fig_go = go.Figure()
-        fig_go.add_trace(go.Scatter(x=df['Date'], y=df['average'], mode='lines+markers', name='Average Scratch Over Time', line=dict(color='magenta')))
-        t = 'Plot of Scratch Bowling Average over Time'
-        fig_go.update_layout(title=t, xaxis_title='Date', yaxis_title='Average Scratch')
+        fig_go.add_trace(go.Scatter(x=df['Date'], y=df['average'], mode='lines+markers', name='Average Over Time', line=dict(color='magenta')))
+        t = 'Plot of Bowling Average over Time'
+        fig_go.update_layout(title=t, xaxis_title='Date', yaxis_title='Bowling Average')
         st.plotly_chart(fig_go)
 
     # Plot of Scratch Performance in Each Game over Time
