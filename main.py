@@ -113,7 +113,7 @@ def main():
             game3 = st.text_input("Game 3 Score: ")
             if st.button("Update Bowling Data", type="primary"):
                 df_saved.loc[len(df_saved)] = [league_name, league_date, int(league_week), int(game1), int(game2), int(game3)]
-                df_saved.to_csv('Bowling.csv')
+                df_saved.to_csv('Bowling.csv', index =False)
 
     # Optional Plotting Method:
     #     with plot_container_plt:
